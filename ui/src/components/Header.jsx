@@ -34,7 +34,7 @@ class MainHeader extends Component {
               size={this.props.size}
               style={{backgroundColor:'rgb(27, 28, 29)',margin:'0',padding:'14px 0 0px'}}
             >
-              <Container style={{display:'block'}}>
+              <Container style={{display:'flex', justifyContent: 'space-between', height:'50px' }}>
                 <Menu.Item as={Link} to='/' style={style.menu} active>
                   POPSTORE
                 </Menu.Item>
@@ -62,7 +62,7 @@ class MainHeader extends Component {
                 }
                 
 
-                <Menu.Item style={{float:'right',padding:'16px 0 18px'}}>
+                <Menu.Item style={{float:'right', padding:'16px 0'}}>
                   
                   {
                     !this.props.User.islogin?
@@ -235,8 +235,9 @@ class MainHeader extends Component {
 const style={
   menu:{
     display:'inline-block',
-    marginTop:'5px',
-    padding:'.6em 1em'
+    // marginTop:'5px',
+    padding:'1em 1em',
+    margin:'10px'
   },
   menuRight:{
     display:'inline-block',

@@ -4,6 +4,7 @@ import Flashsale from '../../components/FlashsaleHome'
 import { NavLink, Link } from 'react-router-dom';
 import Axios from 'axios';
 import { APIURL } from '../../supports/ApiUrl';
+import './user.css'
 
 class Home extends Component {
   state = {
@@ -94,55 +95,54 @@ class Home extends Component {
   render() { 
     return ( 
           <Grid style={{padding:50 }}>
-                  <Grid.Row columns={2} >
+                  <Grid.Row columns={2} style={{position:'relative'}}>
                       <Grid.Column style={{marginRight:0, paddingRight: 0,}}>
-                          <Image src='/images/men.jpg'/>
+                          <Image height='400px' src='/images/men.jpg'/>
                       </Grid.Column>
-                      <Grid.Column style={{marginLeft:0, paddingLeft: 0,}}>
-                        <Image src='/images/women.jpg' />
+                      <Grid.Column  style={{marginLeft:0, paddingLeft: 0,}}>
+                        <Image height='400px' src='/images/women.jpg' />
                       </Grid.Column>
-                      <div style={{position:"absolute",width:'100%',alignSelf:'center', fontFamily:'muli,sans-serif', fontWeight:'100'}}>
-                        <center>
-                          <Segment circular style={{width: 200, height: 200, backgroundColor: '#898989'}}>
+
+                      <div className='circleMenWomen'>
+                          <Segment circular className='menSegment'>
                             <Header as='h2'>
-                              Men
+                              <p>Men</p>
                               <Link to='/allproducts/men'>
-                                  <Button inverted className='btn-shopnow' style={{padding:20, marginTop:10, borderWidth:'0.5px',fontWeight:100, textTransform:'uppercase', fontSize:'16px'}}>Shop Now</Button>
+                                  <Button inverted className='shopNow' >Shop Now</Button>
                               </Link>
                             </Header>
                           </Segment>
-                          <Segment circular inverted style={{width: 200, height: 200}}>
+                          <Segment circular inverted className='womenSegment'>
                             <Header as='h2' inverted>
-                              Women
+                              <p>Women</p>
                               <Link to='/allproducts/women'>
-                                  <Button inverted className='btn-shopnow' style={{padding:20, marginTop:10, borderWidth:'0.5px',fontWeight:100, textTransform:'uppercase', fontSize:'16px'}}>Shop Now</Button>
+                                  <Button inverted className=' shopNow' >Shop Now</Button>
                               </Link>
                             </Header>
                           </Segment>
-                        </center>
                       </div>
+
                   </Grid.Row>
-                  <div style={{width:'100%', borderWidth:'2px', borderColor:'black', padding:20, justifyContent: 'center', alignItems:'center', display: 'flex', flexDirection:'column' ,}}>
-                    <div className=" box-2 btn btn-one" style={{width:'100%', textAlign:'center', marginBottom:20}}>
-                    <div className="wrapper"  >
-                      <a href="#"><span>Hover Me!</span></a>
-                    </div>
-                    </div> 
-                    <div style={{width:'100%', textAlign:'center', marginBottom:20}}>
-                      <Link to='search/recommended'><h2>Recommended Products</h2></Link>
-                    </div> 
-                    <div style={{width:'70%', textAlign:'center',display:'flex',justifyContent:'space-between'}}>
+                  <div className='showProduct'>
+                    <Link className='allProducts box-2 btn btn-one ' to='allproducts'>
+                        See All Products
+                    </Link>                  
+
+                    <Link className='categoryproduct' style={{justifyContent:'center'}} to='search/recommended'>
+                      <h2>Recommended Products</h2>
+                    </Link>                  
+                    <div className='categoryproduct' style={{marginBottom:'30px'}}>
                         {this.renderRecommended()}
                     </div>
-                  </div>
-                  <div style={{width:'100%', borderWidth:'20px', borderColor:'black', padding:20, justifyContent: 'center', alignItems:'center', display: 'flex', flexDirection:'column' ,}}>
-                    <div style={{width:'100%', textAlign:'center', marginBottom:20}}>
-                    <Link to='search/mostviewed'><h2>Most Viewed Products</h2></Link>
-                    </div>
-                    <div style={{width:'70%', textAlign:'center',display:'flex',justifyContent:'space-between'}}>
+
+                    <Link className='categoryproduct' style={{justifyContent:'center'}} to='search/mostviewed'>
+                      <h2>Most Viewed Products</h2>
+                    </Link>
+                    <div className='categoryproduct'>
                         {this.renderMostViewed()}
                     </div>
                   </div>
+                
 
                   {/* INDO */}
                   {/* FLASHSALE */}

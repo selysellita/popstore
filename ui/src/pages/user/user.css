@@ -1,0 +1,81 @@
+.shopNow{
+    /* padding:20;  */
+    margin-top:10; 
+    border-width:0.1px;
+    font-weight:100; 
+    text-transform:uppercase; 
+    font-size:80px;
+    width: 90%;
+    height: 25%!important;
+    
+}
+.shopNow.ui.inverted.button{
+    box-shadow:0 0 0 1px white inset!important;
+    font-size: 20px;
+    padding: 8px;
+    font-weight: 100;
+    font-family: Lato, "Helvetica Neue", Arial, Helvetica, sans-serif;
+  }
+.circleMenWomen{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    position:absolute; 
+    /* top:50px;  */
+    height:100%; 
+    width:100%;
+    font-family:'muli',sans-serif; 
+    font-weight:100;
+    padding: 0 ;
+    margin: 0;
+}
+.menSegment{
+    padding: 0;
+    margin: 0 !important;
+    width: 200px; 
+    height: 200px; 
+    line-height: 200px;
+    background-color: #898989 !important;
+    font-size: 20px !important;
+}
+
+
+.womenSegment{
+    width: 200px; 
+    height: 200px;
+    margin: 0 !important;
+    line-height: 200px;
+    font-size: 20px !important;
+    padding: 0;
+}
+.showProduct{
+    width:100%;
+    border-width:2px;
+    border-collapse:black;
+    padding:20;
+    justify-content: center;
+    align-items:center;
+    display: flex;
+    flex-direction:column ;
+    position:relative
+}
+.allProducts{
+    font-size:20px; 
+    letter-spacing:8px; 
+    text-transform: uppercase;
+    padding: 5px;
+    height: 33.33%;
+    width: 100%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 30px;
+}
+.categoryproduct{
+    width:70%;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+}
