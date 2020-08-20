@@ -4,7 +4,6 @@ import Axios from 'axios'
 import {connect} from 'react-redux'
 import { APIURL } from '../../supports/ApiUrl'
 import { Button,Table,Image } from 'semantic-ui-react'
-import { isJson } from '../../supports/services'
 import ProfileEdit from './../../components/Profileedit'
 const Profile=(props)=>{
     const [data,setdata]=useState({})

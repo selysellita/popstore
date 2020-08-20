@@ -1,32 +1,17 @@
-import React ,{Component,useState} from 'react'
+import React ,{Component} from 'react'
 import Axios from 'axios'
 import {APIURL} from '../supports/ApiUrl'
 import {
     Grid,
     Header,
-    Image,
-    Form,
     Segment,
-    Button,
-    Message,
     Container,
-    Input,
-    TextArea,
-    Checkbox,
     Icon,
-    Divider,
-    Modal,
-    Dropdown,
-    Tab,
-    Menu,
     Label,
-    Rating
 } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
-import {titleConstruct,isJson,getDate,date,idr} from '../supports/services'
-import {ListByTransaction,listItemsByProduct,listFlashsaleItemsByProduct} from '../supports/ListAssembler'
-import {LoadCart,UpdateCheckout,CountTotalCharge,CountTotalPayment} from '../redux/actions'
-import {Redirect} from 'react-router-dom'
+import {isJson,idr} from '../supports/services'
+import {listFlashsaleItemsByProduct} from '../supports/ListAssembler'
 import { connect } from 'react-redux'
 
 
@@ -42,7 +27,6 @@ class FlashsaleRequest extends Component {
         clock:undefined,
 
      }
-
      
     componentDidMount=()=>{
         this.getFlashsaleList()
@@ -86,7 +70,7 @@ class FlashsaleRequest extends Component {
                 Axios.put(`${APIURL}/products/${product.idproduct}`,{isflashsale:1})
                 .then((updated)=>{
 
-                    if(ProductList.length-1==index){
+                    if(ProductList.length-1===index){
                         console.log('all product is in flashsale')
                     }
                 }).catch((err)=>{
@@ -100,7 +84,7 @@ class FlashsaleRequest extends Component {
 
 
     renderTimeClock=(flashsale)=>{
-        var secondstostart=(-Date.parse(this.state.now)+Date.parse(flashsale.startat))/1000
+        // var secondstostart=(-Date.parse(this.state.now)+Date.parse(flashsale.startat))/1000
         var secondstofinish=(-Date.parse(this.state.now)+Date.parse(flashsale.finishat))/1000
 
         // CLOCK FOR ACTIVE FLASHSALE
@@ -114,11 +98,11 @@ class FlashsaleRequest extends Component {
         var secs=finishinsecs<10&finishinsecs>=0?'0'+finishinsecs:finishinsecs
 
         // CLOCK UNTIL FLASHSALE START
-        var startinmins=Math.floor(secondstostart/60)
-        var startinsecs=secondstostart%60
+        // var startinmins=Math.floor(secondstostart/60)
+        // var startinsecs=secondstostart%60
 
-        var isstarted=secondstostart<=0
-        var isfinished=secondstofinish<=0
+        // var isstarted=secondstostart<=0
+        // var isfinished=secondstofinish<=0
 
 
         return (

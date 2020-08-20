@@ -5,27 +5,14 @@ import {
     Grid,
     Header,
     Image,
-    Form,
     Segment,
     Button,
     Message,
     Container,
-    Input,
-    TextArea,
-    Checkbox,
-    Icon,
-    Divider,
     Modal,
-    Dropdown,
-    Tab,
-    Menu,
-    Label
 } from 'semantic-ui-react'
-import Payment from '../user/Payment'
-import {Link} from 'react-router-dom'
-import {titleConstruct,isJson} from '../../supports/services'
+import {titleConstruct} from '../../supports/services'
 import {LoadInvoices} from '../../redux/actions'
-import {Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
@@ -73,11 +60,11 @@ class PaymentList extends Component {
     onDeny=(idtransaction)=>{
 
         // CREATE DATETIME OF TWO HOUR LATER
-        Date.prototype.addHours = function(h) {
-            this.setTime(this.getTime() + (h*60*60*1000));
-            return this;
-        }
-        var payat=new Date().addHours(2)
+        // Date.prototype.addHours = function(h) {
+        //     this.setTime(this.getTime() + (h*60*60*1000));
+        //     return this;
+        // }
+        // var payat=new Date().addHours(2)
         // ////////////////////////////////
 
         var update={
@@ -202,7 +189,7 @@ class PaymentList extends Component {
                                 </div>
                                 <div style={{marginTop:'auto'}}>
                                     {
-                                        transaction.idtransaction==this.state.idaccept?
+                                        transaction.idtransaction===this.state.idaccept?
                                         <Button 
                                             primary 
                                             style={{width:'100%',marginBottom:'.5em',marginTop:'auto'}}
@@ -216,7 +203,7 @@ class PaymentList extends Component {
                                         >Accept Payment</Button>
                                     }
                                     {
-                                        transaction.idtransaction==this.state.iddeny?
+                                        transaction.idtransaction===this.state.iddeny?
                                         <Button 
                                             style={{width:'100%'}}
                                             color='red'

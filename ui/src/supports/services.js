@@ -1,7 +1,7 @@
 
 export const titleConstruct=(string)=>{
 
-    if(string==undefined||string==null){
+    if(string===undefined||string===null){
         return ''
     }
 
@@ -24,7 +24,7 @@ export const titleConstruct=(string)=>{
 
 export const isJson=(data)=>{
     try{
-        if(data==null||data==''||data==""||data=="''"||data==`""`){
+        if(data===null||data===''||data===""||data==="''"||data===`""`){
             return []
         }
         return JSON.parse(data)
@@ -52,7 +52,7 @@ export const getDate=(date)=>{
     var hour
     var min
     for(var i=0;i<string.length;i++){
-        if(string.charAt(i)=='T'){
+        if(string.charAt(i)==='T'){
             hour=string.slice(i+1,i+3)
             min=string.slice(i+4,i+6)
         }
@@ -118,7 +118,7 @@ export const getDate=(date)=>{
 export const date=(date)=>{
 
     // PROTECTION, IF DATE IS EMPTY
-    if(typeof date == 'undefined'){
+    if(typeof date === 'undefined'){
         return 'no date found'
     }
 
@@ -133,7 +133,7 @@ export const date=(date)=>{
 
 export const idr=(number)=>{
 
-    if(number==undefined||number==null){
+    if(number===undefined||number===null){
         return 'Rp0,00'
     }
 
@@ -141,11 +141,11 @@ export const idr=(number)=>{
 
     var newnumber=number.toString().split('').reverse()
 
-    var loopnumber=newnumber
+    // var loopnumber=newnumber
 
     var count=0
     newnumber.forEach((val,index)=>{
-        if(index%3==0&&index>0){
+        if(index%3===0&&index>0){
             newnumber.splice(index+count,0,',')
             count++
         }

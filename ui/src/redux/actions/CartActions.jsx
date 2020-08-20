@@ -53,7 +53,7 @@ export const LoadCart=(iduser)=>{
             var id=0
             // console.log('cartlist',cartlist)
 
-            if(cartlist.length==0){
+            if(cartlist.length===0){
                 dispatch({type:CART_EMPTY})
             }
     
@@ -76,7 +76,7 @@ export const LoadCart=(iduser)=>{
 
                     // LAST CYCLE
                     // AFTER ALL STOCK IS CHECKED
-                    if(cartlist.length-1==cartlistindex){
+                    if(cartlist.length-1===cartlistindex){
 
                         // STOCK IS CHECKED
                         // RECONSTRUCT LIST, ITEMS BY SELLER
@@ -87,7 +87,7 @@ export const LoadCart=(iduser)=>{
                             // check if seller data already in array
                             var isexist=false
                             for(var i=0;i<listBySeller.length;i++){
-                                if(listBySeller[i].idseller==item.idseller){
+                                if(listBySeller[i].idseller===item.idseller){
                                     isexist=true
                                     listBySeller[i].itemlist.push(item)
                                 }
@@ -116,9 +116,9 @@ export const LoadCart=(iduser)=>{
                         var listCheckout=[]
                         for(let item of res.data){
                             // check if seller data already in array
-                            var isexist=false
-                            for(var i=0;i<listCheckout.length;i++){
-                                if(listCheckout[i].idseller==item.idseller){
+                            isexist=false
+                            for(i=0;i<listCheckout.length;i++){
+                                if(listCheckout[i].idseller===item.idseller){
                                     isexist=true
                                     if(item.isselected){
                                         listCheckout[i].itemlist.push(item)

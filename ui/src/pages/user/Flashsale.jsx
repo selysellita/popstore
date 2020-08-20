@@ -1,32 +1,18 @@
-import React ,{Component,useState} from 'react'
+import React ,{Component} from 'react'
 import Axios from 'axios'
 import {APIURL} from '../../supports/ApiUrl'
 import {
     Grid,
     Header,
-    Image,
-    Form,
     Segment,
-    Button,
     Message,
     Container,
-    Input,
-    TextArea,
-    Checkbox,
-    Icon,
-    Divider,
-    Modal,
-    Dropdown,
-    Tab,
-    Menu,
     Label,
     Rating
 } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
-import {titleConstruct,isJson,getDate,date,idr} from '../../supports/services'
-import {ListByTransaction,listItemsByProduct,listFlashsaleItemsByProduct} from '../../supports/ListAssembler'
-import {LoadCart,UpdateCheckout,CountTotalCharge,CountTotalPayment} from '../../redux/actions'
-import {Redirect} from 'react-router-dom'
+import {isJson,idr} from '../../supports/services'
+import {listFlashsaleItemsByProduct} from '../../supports/ListAssembler'
 import { connect } from 'react-redux'
 
 
@@ -86,7 +72,7 @@ class FlashsaleRequest extends Component {
                 Axios.put(`${APIURL}/products/${product.idproduct}`,{isflashsale:1})
                 .then((updated)=>{
 
-                    if(ProductList.length-1==index){
+                    if(ProductList.length-1===index){
                         console.log('all product is in flashsale')
                     }
                 }).catch((err)=>{

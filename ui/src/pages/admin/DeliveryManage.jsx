@@ -4,27 +4,17 @@ import {APIURL} from '../../supports/ApiUrl'
 import {
     Grid,
     Header,
-    Image,
-    Form,
     Segment,
     Button,
-    Message,
     Container,
     Input,
-    TextArea,
-    Checkbox,
     Icon,
     Divider,
-    Dropdown,
-    Tab,
-    Menu,
-    Label
 } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import {titleConstruct,isJson,getDate} from '../../supports/services'
-import {ListByTransaction,ListByStoreTransaction} from '../../supports/ListAssembler'
-import {LoadCart,UpdateCheckout,CountTotalCharge,CountTotalPayment} from '../../redux/actions'
-import {Redirect} from 'react-router-dom'
+import {ListByStoreTransaction} from '../../supports/ListAssembler'
+import {LoadCart} from '../../redux/actions'
 import { connect } from 'react-redux'
 
 
@@ -83,7 +73,7 @@ class DeliveryList extends Component {
                     .then((updated)=>{
                         console.log('order id ',order.idtransactiondetail,' is updated')
                         // last cycle
-                        if(orderlist.length-1==index){
+                        if(orderlist.length-1===index){
                             this.setState({loading:false,receiver:''})
                             this.getList()
                         }
@@ -252,7 +242,7 @@ class DeliveryList extends Component {
                                 </div>
                                 <Divider/>
                                 {
-                                    seller.idtransactionseller==this.state.packageid?
+                                    seller.idtransactionseller===this.state.packageid?
                                     <>
                                     Package was accepted by 
                                     <Input
@@ -284,7 +274,7 @@ class DeliveryList extends Component {
                                     </Button>
                                 }
                                 {
-                                    this.state.errormessage&&seller.idtransactionseller==this.state.packageid?
+                                    this.state.errormessage&&seller.idtransactionseller===this.state.packageid?
                                     <p style={{color:'red'}}>{this.state.errormessage}</p>
                                     : null
                                 }

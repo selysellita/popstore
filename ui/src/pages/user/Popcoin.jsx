@@ -2,18 +2,14 @@ import React ,{Component} from 'react'
 import Axios from 'axios'
 import {APIURL} from '../../supports/ApiUrl'
 import {
-    Grid,
     Header,
-    Form,
     Container,
     Segment,
     Icon,
     Button,
-    Message,
     Input
 } from 'semantic-ui-react'
 import {idr} from '../../supports/services'
-import {Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
 import {KeepLogin} from '../../redux/actions'
 

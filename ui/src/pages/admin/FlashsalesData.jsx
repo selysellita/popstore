@@ -4,28 +4,14 @@ import {APIURL} from '../../supports/ApiUrl'
 import {
     Grid,
     Header,
-    Image,
-    Form,
-    Segment,
     Button,
     Message,
     Container,
-    Input,
-    TextArea,
-    Checkbox,
     Icon,
     Divider,
-    Modal,
-    Dropdown,
-    Tab,
-    Menu,
-    Label
 } from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
-import {titleConstruct,isJson,getDate,date} from '../../supports/services'
-import {ListByTransaction,listFlashsaleItemsByProduct} from '../../supports/ListAssembler'
-import {LoadCart,UpdateCheckout,CountTotalCharge,CountTotalPayment} from '../../redux/actions'
-import {Redirect} from 'react-router-dom'
+import {titleConstruct,getDate} from '../../supports/services'
+import {listFlashsaleItemsByProduct} from '../../supports/ListAssembler'
 import { connect } from 'react-redux'
 
 
@@ -106,7 +92,7 @@ class FlashsalesData extends Component {
                 Axios.put(`${APIURL}/products/${product.idproduct}`,update)
                 .then((updated)=>{
 
-                    if(ProductList.length-1==index){
+                    if(ProductList.length-1===index){
                         console.log('all product state is in flashsale')
                     }
                 }).catch((err)=>{

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Image, Button, Segment, Header, Card, Icon, Rating } from 'semantic-ui-react';
 import Flashsale from '../../components/FlashsaleHome'
-import { NavLink, Link } from 'react-router-dom';
+import {Link } from 'react-router-dom';
 import Axios from 'axios';
 import { APIURL } from '../../supports/ApiUrl';
 import './user.css'

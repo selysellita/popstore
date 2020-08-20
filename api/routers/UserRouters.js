@@ -4,7 +4,7 @@ const {Auth}=require('../supports/Auth')
 
 const Router=express.Router()
 
-Router.get('/allusers/:username',UserControllers.allusers)
+// Router.get('/allusers/:username',UserControllers.allusers)
 Router.get('/login',UserControllers.login)
 Router.get('/keeplogin', Auth, UserControllers.keeplogin)
 Router.post('/',UserControllers.create)

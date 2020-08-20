@@ -1,30 +1,11 @@
 import React ,{Component} from 'react'
-import Axios from 'axios'
-import {APIURL} from '../../supports/ApiUrl'
 import {
-    Grid,
-    Header,
-    Image,
-    Form,
-    Segment,
-    Button,
-    Message,
     Container,
-    Input,
-    TextArea,
-    Checkbox,
-    Icon,
-    Divider,
-    Dropdown,
     Tab,
     Menu,
-    Label
 } from 'semantic-ui-react'
 import FlashsaleRegister from './FlashsaleRegister'
-import {Link} from 'react-router-dom'
-import {titleConstruct,isJson} from '../../supports/services'
-import {LoadCart,UpdateCheckout,CountTotalCharge,CountTotalPayment} from '../../redux/actions'
-import {Redirect} from 'react-router-dom'
+import {LoadCart} from '../../redux/actions'
 import { connect } from 'react-redux'
 
 
@@ -40,17 +21,12 @@ class SellerFlashsale extends Component {
 
     
     render() { 
-        // console.log(this.props.Payment)
         const panes = [
             {
                 menuItem: (
                   <Menu.Item key='create'>
                     Register Products
-                    {/* {
-                        this.props.Invoices.total?
-                        <Label color='blue'>{this.props.Invoices.total}</Label>
-                        : null
-                    } */}
+                    
                   </Menu.Item>
                 ),
                 render: () => <Tab.Pane><FlashsaleRegister/></Tab.Pane>,
@@ -61,16 +37,8 @@ class SellerFlashsale extends Component {
                         On Flashsale
                     </Menu.Item>
                 ),
-                // render: () => <Tab.Pane><DeliveryManage/></Tab.Pane>,
-            },
-            // {
-            //     menuItem: (
-            //         <Menu.Item key='show'>
-            //             Active Flashsale
-            //         </Menu.Item>
-            //     ),
-            //     // render: () => <Tab.Pane><AutoCompleteOrder/></Tab.Pane>,
-            // },
+              },
+          
           ]
 
         return ( 

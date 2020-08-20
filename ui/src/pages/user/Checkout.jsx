@@ -4,25 +4,17 @@ import {APIURL} from '../../supports/ApiUrl'
 import {
     Grid,
     Header,
-    Image,
-    Form,
     Segment,
     Button,
     Message,
     Container,
-    Input,
-    TextArea,
-    Checkbox,
-    Icon,
     Divider,
     Dropdown,
-    Modal
 } from 'semantic-ui-react'
 import Payment from './Payment'
 import {Link} from 'react-router-dom'
 import {titleConstruct,isJson} from '../../supports/services'
 import {LoadCart,UpdateCheckout,CountTotalCharge,CountTotalPayment} from '../../redux/actions'
-import {Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
@@ -76,7 +68,7 @@ class Checkout extends Component {
 
                     // COUNT DELIVERY COST PER SELLER
                     for(var del of this.state.delivery){
-                        if(del.iddelivery==value){
+                        if(del.iddelivery===value){
                             console.log('cost ',del.delivery_cost)
                             checkout[index].seller_delivery_cost=Math.ceil(checkout[index].totalweight/del.per_weight)*del.delivery_cost
                         }

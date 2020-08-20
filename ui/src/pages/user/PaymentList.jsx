@@ -4,28 +4,19 @@ import {APIURL} from '../../supports/ApiUrl'
 import {
     Grid,
     Header,
-    Image,
-    Form,
     Segment,
     Button,
     Message,
     Container,
     Input,
-    TextArea,
-    Checkbox,
     Icon,
     Divider,
-    Dropdown,
-    Tab,
-    Menu,
     Label,
     Modal
 } from 'semantic-ui-react'
-import Payment from './Payment'
 import {Link} from 'react-router-dom'
 import {titleConstruct,isJson, idr} from '../../supports/services'
 import {LoadPayment,LoadCart} from '../../redux/actions'
-import {Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
@@ -124,7 +115,7 @@ class PaymentList extends Component {
                 Axios.post(`${APIURL}/transactiondetails`,td)
                 .then((res)=>{
                     // last cycle
-                    if(transaction.sellerlist.length-1==i&&seller.itemlist.length-1==j){
+                    if(transaction.sellerlist.length-1===i&&seller.itemlist.length-1===j){
                         // ALL ITEMS ARE BACK TO CART
                         this.props.LoadCart(this.props.User.iduser)
                     }
@@ -305,9 +296,9 @@ class PaymentList extends Component {
                             </Grid.Column>
                             <Grid.Column width={5}>
                                 Payment 
-                                <Header as={'span'} style={{fontSize:'15px',marginLeft:'.5em'}} color={transaction.payment_method=='Popcoin'?'blue':null}>
+                                <Header as={'span'} style={{fontSize:'15px',marginLeft:'.5em'}} color={transaction.payment_method==='Popcoin'?'blue':null}>
                                     {
-                                        transaction.payment_method=='Popcoin'?
+                                        transaction.payment_method==='Popcoin'?
                                         <>
                                             <Icon name='bitcoin' size='tiny' color='blue' style={{margin:'0 0 0 .5em',fontSize:'18px'}}/>
                                             {transaction.payment_method}
@@ -338,7 +329,7 @@ class PaymentList extends Component {
                                 }
                             </Grid.Column>
                             {
-                                transaction.idtransaction==this.state.uploadid?
+                                transaction.idtransaction===this.state.uploadid?
                                 <Grid.Column width={16} style={{marginTop:'1em',textAlign:'center'}}>
                                     <Input 
                                         type='file'
@@ -390,7 +381,7 @@ class PaymentList extends Component {
                         <Grid.Row style={{paddingTop:'0'}}>
                             <Grid.Column width={16} style={{marginTop:'1em',textAlign:'center'}}>
                                 {
-                                    transaction.idtransaction==this.state.iddelete?
+                                    transaction.idtransaction===this.state.iddelete?
                                     <Button 
                                         color='red'
                                         disabled={isexpired}

@@ -4,29 +4,10 @@ import Axios from 'axios'
 import {APIURL} from '../../supports/ApiUrl'
 import {
     Grid,
-    Header,
-    Image,
-    Form,
     Segment,
-    Button,
-    Message,
-    Container,
-    Input,
-    TextArea,
-    Checkbox,
-    Icon,
-    Divider,
-    Modal,
     Dropdown,
-    Tab,
-    Menu,
-    Label
 } from 'semantic-ui-react'
-import {Link} from 'react-router-dom'
-import {titleConstruct,isJson,getDate} from '../../supports/services'
-import {ListByTransaction} from '../../supports/ListAssembler'
-import {LoadCart,UpdateCheckout,CountTotalCharge,CountTotalPayment} from '../../redux/actions'
-import {Redirect} from 'react-router-dom'
+import {titleConstruct} from '../../supports/services'
 import { connect } from 'react-redux'
 
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
@@ -78,7 +59,7 @@ class PieChart extends Component {
             // console.log('sales list',list.data)
             var dataPoints=list.data.map((val,index)=>{
                 return {
-                    y: this.state.unit==units[0].value?val.totalcount:this.state.unit==units[1].value?val.totalprice:null,
+                    y: this.state.unit===units[0].value?val.totalcount:this.state.unit===units[1].value?val.totalprice:null,
                     label: val.title
                 }
             })
@@ -94,7 +75,7 @@ class PieChart extends Component {
         console.log('change unit')
         var dataPoints=this.state.listdata.map((val,index)=>{
             return {
-                y: unit=='item'?val.totalcount:unit=='price'?val.totalprice:null,
+                y: unit==='item'?val.totalcount:unit==='price'?val.totalprice:null,
                 label: val.title
             }
         })
@@ -108,7 +89,7 @@ class PieChart extends Component {
 			exportEnabled: false,
 			animationEnabled: true,
 			title: {
-				text: `Sales By ${titleConstruct(this.state.by)} (${this.state.unit==units[0].value?'unit sold':this.state.unit==units[1].value?'total price':null})`
+				text: `Sales By ${titleConstruct(this.state.by)} (${this.state.unit===units[0].value?'unit sold':this.state.unit===units[1].value?'total price':null})`
 			},
 			data: [{
 				type: "pie",

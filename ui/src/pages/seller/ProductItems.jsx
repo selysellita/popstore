@@ -1,11 +1,9 @@
 import React ,{Component} from 'react'
 import Axios from 'axios'
-// import {APIURL} from '../../supports/ApiUrl'
 import {APIURL} from '../../supports/ApiUrl'
 import {
     Grid,
     Header,
-    Image,
     Form,
     Segment,
     Button,
@@ -13,14 +11,11 @@ import {
     Container,
     Input,
     TextArea,
-    Checkbox,
-    Icon,
     Divider,
     Dimmer,
     Loader
 } from 'semantic-ui-react'
 import {idr} from '../../supports/services'
-import {Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
@@ -80,7 +75,7 @@ class ProductItems extends Component {
         .then((res)=>{
             console.log('product data',res.data)
             // CHECK ACCESS
-            if(this.props.Seller.idseller==res.data.idseller){
+            if(this.props.Seller.idseller===res.data.idseller){
                 this.setState({product:res.data,coverloading:false})
             }else{
                 this.setState({product:res.data,coverloading:false,access:false})
@@ -268,7 +263,7 @@ class ProductItems extends Component {
 
     isJson=(data)=>{
         try{
-            if(data==null||data==''){
+            if(data===null||data===''){
                 return []
             }
             return JSON.parse(data)
@@ -895,7 +890,7 @@ class ProductItems extends Component {
                                 <Button
                                     basic
                                     primary
-                                    loading={item.iditem==this.state.loadingimageaddid}
+                                    loading={item.iditem===this.state.loadingimageaddid}
                                     style={{height:'100%'}}
                                     onClick={()=>{this.onAddPhoto(item.iditem,item.image)}}
                                 >
@@ -937,8 +932,8 @@ class ProductItems extends Component {
                                     <Grid.Column width={16} style={{textAlign:'right'}}>
                                         <Button
                                             primary
-                                            loading={item.iditem==this.state.editid&&this.state.loadingedit}
-                                            disabled={item.iditem==this.state.editid&&this.state.loadingedit}
+                                            loading={item.iditem===this.state.editid&&this.state.loadingedit}
+                                            disabled={item.iditem===this.state.editid&&this.state.loadingedit}
                                             // style={{marginLeft:'auto'}}
                                             onClick={this.onSubmit}
                                         >
@@ -1010,7 +1005,7 @@ class ProductItems extends Component {
 
     render() { 
 
-        if(this.props.Seller.idseller==this.state.product.idseller){
+        if(this.props.Seller.idseller===this.state.product.idseller){
             return ( 
                 <Container style={{paddingTop:'2em',width:'650px'}}>
     

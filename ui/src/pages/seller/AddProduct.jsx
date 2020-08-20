@@ -4,7 +4,6 @@ import {APIURL} from '../../supports/ApiUrl'
 import {
     Grid,
     Header,
-    Image,
     Form,
     Segment,
     Button,
@@ -13,11 +12,9 @@ import {
     Input,
     TextArea,
     Checkbox,
-    Sidebar,
     Dropdown
 } from 'semantic-ui-react'
 import {Redirect} from 'react-router-dom'
-import SidebarSeller from './componentseller/sidebar'
 import { connect } from 'react-redux'
 import { titleConstruct } from '../../supports/services'
 
@@ -274,11 +271,11 @@ class AddProduct extends Component {
             arrone.forEach((one,i)=>{
                 arrtwo.forEach((two,j)=>{
                     // var item=[Array.isArray(one)?...one:one,two]
-                    if(two==null||two==''){
+                    if(two===null||two===''){
                         console.log('two null')
                         // var item=[one]
                         // dont push
-                    }else if(one==null||one==''){
+                    }else if(one===null||one===''){
                         console.log('one null')
                         console.log(arrone)
                         var item=[two]
@@ -387,7 +384,7 @@ class AddProduct extends Component {
                                 // basic
                                 // primary
                                 style={{fontSize:'15px',fontWeight:'700',cursor:'pointer'}}
-                                disabled={this.state.typecount[index]==undefined?true:false}
+                                disabled={this.state.typecount[index]===undefined?true:false}
                                 onClick={()=>{
                                     var typecount=this.state.typecount
                                     typecount[index]=this.state.typecount[index]+1
@@ -430,7 +427,7 @@ class AddProduct extends Component {
                                             key={index}
                                             label={titleConstruct(cat.category_name)}
                                             style={{marginRight:'1.5em'}}
-                                            checked={this.state.idcategory==cat.idcategory}
+                                            checked={this.state.idcategory===cat.idcategory}
                                             onClick={()=>{
                                                 this.setState({idcategory:cat.idcategory})
                                                 // console.log('setstate to',cat.idcategory)

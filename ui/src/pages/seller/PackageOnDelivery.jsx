@@ -4,27 +4,15 @@ import {APIURL} from '../../supports/ApiUrl'
 import {
     Grid,
     Header,
-    Image,
-    Form,
     Segment,
-    Button,
-    Message,
     Container,
-    Input,
-    TextArea,
-    Checkbox,
     Icon,
     Divider,
-    Dropdown,
-    Tab,
-    Menu,
-    Label
 } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import {titleConstruct,isJson,getDate} from '../../supports/services'
-import {ListByStoreTransaction,ListByTransaction} from '../../supports/ListAssembler'
-import {LoadCart,UpdateCheckout,CountTotalCharge,CountTotalPayment} from '../../redux/actions'
-import {Redirect} from 'react-router-dom'
+import {ListByStoreTransaction} from '../../supports/ListAssembler'
+import {LoadCart} from '../../redux/actions'
 import { connect } from 'react-redux'
 
 

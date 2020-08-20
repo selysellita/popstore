@@ -4,7 +4,6 @@ import Axios from 'axios'
 import { useEffect,useState } from 'react';
 import { APIURL } from './../supports/ApiUrl';
 import {connect} from 'react-redux'
-import { isJson } from './../supports/services'
 const CommentSection = (props) => {
     const [commentdata,setcomment]=useState([])
     

@@ -1,11 +1,9 @@
-import React, {useState,useEffect,Fragment} from 'react';
+import React, {useState,useEffect} from 'react';
 import './App.css';
 import Home from './pages/user/Home'
 import { Switch, Route, Redirect } from 'react-router-dom';
 import {
-  Grid,
   Header,
-  Segment,
 } from 'semantic-ui-react'
 import MainHeader from './components/Header'
 import Login from './pages/user/Login';
@@ -29,7 +27,7 @@ import Sellerregis from './pages/user/Sellerregis'
 import Admintable from './pages/admin/Admin'
 // import Testimage from './pages/aaaaa'
 import WishlistPage from './pages/user/Wishlist'
-import CommentSection from './components/Comment'
+// import CommentSection from './components/Comment'
 import Sales from './pages/admin/SalesCharts'
 import ManageFlashsales from './pages/admin/ManageFlashsales'
 import FlashsaleSellerManage from './pages/seller/FlashsaleSellerManage'
@@ -39,20 +37,20 @@ import { KeepLogin,KeepSeller, LoadCart, LoadPayment,LoadInvoices, LoadOrders } 
 import { APIURL } from './supports/ApiUrl';
 import { connect } from 'react-redux';
 import MyProducts from './pages/seller/MyProduct';
-import MyOrders from './pages/seller/MyOrder';
+// import MyOrders from './pages/seller/MyOrder';
 import Axios from'axios'
 import StoreProfile from './pages/seller/StoreProfile';
 import SearchProducts from './pages/user/SearchProducts';
 import WomenProducts from './pages/user/WomenProducts';
 import MenProducts from './pages/user/MenProducts';
-import MyProduct from './pages/seller/MyProduct';
+// import MyProduct from './pages/seller/MyProduct';
 
 
 function App({KeepLogin,LoadCart,LoadPayment,LoadInvoices,LoadOrders,User,KeepSeller}) {
 
   const [Loading,setLoading]=useState(true)
 
-  const [fixed,setfixed]=useState(false)
+  // const [fixed,setfixed]=useState(false)
 
   useEffect(()=>{
     const token=localStorage.getItem('token')
@@ -91,7 +89,7 @@ function App({KeepLogin,LoadCart,LoadPayment,LoadInvoices,LoadOrders,User,KeepSe
   },[])
 
 
-  const visitorAccess=!Loading&&!User.islogin
+  // const visitorAccess=!Loading&&!User.islogin
   const memberAccess=!Loading&&User.islogin&&User.isverified // only true if not loading,islogin,and isverified
   const sellerAccess=!Loading&&User.islogin&&User.isseller&&User.isverified
   const adminAccess=!Loading&&User.islogin&&User.isadmin&&User.isverified
@@ -117,7 +115,7 @@ function App({KeepLogin,LoadCart,LoadPayment,LoadInvoices,LoadOrders,User,KeepSe
           overflow:'hidden',
         }}>
           <Header as={'h1'} style={{textAlign:'center',marginTop:'0',fontSize:'39px',letterSpacing:'8px'}}>Popstore</Header>
-          <div><center><h3>Loading...</h3><img width="400px" src="https://static.boredpanda.com/blog/wp-content/uploads/2016/07/totoro-exercising-100-days-of-gifs-cl-terryart-2-578f80ec7f328__605.gif"/></center></div>
+          <div><center><h3>Loading...</h3><img alt='loading...' width="400px" src="https://static.boredpanda.com/blog/wp-content/uploads/2016/07/totoro-exercising-100-days-of-gifs-cl-terryart-2-578f80ec7f328__605.gif"/></center></div>
           {/* <Segment 
             basic 
             loading={true} 
@@ -132,7 +130,7 @@ function App({KeepLogin,LoadCart,LoadPayment,LoadInvoices,LoadOrders,User,KeepSe
         </div>
       </div>
     )
-    return <div><center><h3>Loading...</h3><img width="400px" src="https://static.boredpanda.com/blog/wp-content/uploads/2016/07/totoro-exercising-100-days-of-gifs-cl-terryart-2-578f80ec7f328__605.gif"/></center></div>
+    
   }
   
   return (

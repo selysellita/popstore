@@ -1,5 +1,5 @@
-import React, {useState, useEffect} from 'react'
-import { Form, Button, Message } from 'semantic-ui-react'
+import React, {useState} from 'react'
+import { Form, Button } from 'semantic-ui-react'
 import Axios from 'axios'
 import { APIURL } from '../../supports/ApiUrl'
 import {connect} from 'react-redux'

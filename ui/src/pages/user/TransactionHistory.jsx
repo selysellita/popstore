@@ -5,28 +5,18 @@ import {
     Grid,
     Header,
     Image,
-    Form,
     Segment,
     Button,
     Message,
     Container,
-    Input,
-    TextArea,
-    Checkbox,
     Icon,
     Divider,
-    Modal,
-    Dropdown,
-    Tab,
-    Menu,
-    Label
+    Modal
 } from 'semantic-ui-react'
-import Payment from './Payment'
 import {Link} from 'react-router-dom'
 import {titleConstruct,isJson,getDate, idr} from '../../supports/services'
 import {ListByTransaction} from '../../supports/ListAssembler'
-import {LoadCart,UpdateCheckout,CountTotalCharge,CountTotalPayment} from '../../redux/actions'
-import {Redirect} from 'react-router-dom'
+import {LoadCart} from '../../redux/actions'
 import { connect } from 'react-redux'
 
 
@@ -467,7 +457,7 @@ class TransactionList extends Component {
                     </Grid.Column>
                     <Grid.Column width={4}>
                         {
-                            seller.idpackagestatus==4?
+                            seller.idpackagestatus===4?
                             <div style={{display:'inline-block',fontSize:'12px'}}>
                                 Time of Arrival: {getDate(seller.package_updateat)}
                             </div>
@@ -476,7 +466,7 @@ class TransactionList extends Component {
                     </Grid.Column>
                     <Grid.Column width={4}>
                         {
-                            seller.idpackagestatus==4?
+                            seller.idpackagestatus===4?
                             <div style={{display:'inline-block',fontSize:'12px'}}>
                                 Accepted By: {titleConstruct(seller.recipient)}
                             </div>
@@ -515,7 +505,7 @@ class TransactionList extends Component {
                                 <span style={{display:'block'}}>Status</span>
                                 <Header as={'span'} style={{fontSize:'15px'}} color='blue'>
                                     {
-                                        transaction.idstatus==2?
+                                        transaction.idstatus===2?
                                         'Waiting For Payment Verification'
                                         : titleConstruct(transaction.status_name)
                                     }

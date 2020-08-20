@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import SidebarSeller from './componentseller/sidebar';
-import { Button, Menu, Icon, Label, Table, Pagination, Input, Grid, Image, Header, Form, TextArea } from 'semantic-ui-react'
-import { NavLink } from 'react-router-dom';
-import SubNavigation from './componentseller/subnavigation';
+import { Button, Menu, Icon,  Input, Grid, Image, Header, Form, TextArea } from 'semantic-ui-react'
 import _ from 'lodash'
 import Axios from 'axios'
 import { APIURL } from '../../supports/ApiUrl';

@@ -7,7 +7,7 @@ export const ListByTransaction=(list,method)=>{
     list.forEach((item)=>{
         var isexist=false
         for(var i=0;i<listByTransactionSeller.length;i++){
-            if(listByTransactionSeller[i].idtransactionseller==item.idtransactionseller){
+            if(listByTransactionSeller[i].idtransactionseller===item.idtransactionseller){
                 isexist=true
                 listByTransactionSeller[i].itemlist.push(item)
             }
@@ -53,7 +53,7 @@ export const ListByTransaction=(list,method)=>{
     })
     // console.log('list by transaction seller',listByTransactionSeller)
 
-    if(method=='store'){
+    if(method==='store'){
         return listByTransactionSeller
     }
 
@@ -63,7 +63,7 @@ export const ListByTransaction=(list,method)=>{
     listByTransactionSeller.forEach((ts)=>{
         var isexist=false
         for(var i=0;i<listByTransaction.length;i++){
-            if(listByTransaction[i].idtransaction==ts.idtransaction){
+            if(listByTransaction[i].idtransaction===ts.idtransaction){
                 isexist=true
                 listByTransaction[i].sellerlist.push(ts)
             }
@@ -129,7 +129,7 @@ export const ListByStoreTransaction=(list)=>{
     list.forEach((item)=>{
         var isexist=false
         for(var i=0;i<listByTransaction.length;i++){
-            if(listByTransaction[i].idtransaction==item.idtransaction){
+            if(listByTransaction[i].idtransaction===item.idtransaction){
                 isexist=true
                 listByTransaction[i].itemlist.push(item)
             }
@@ -195,7 +195,7 @@ export const listItemsByProduct=(list)=>{
     list.forEach((item)=>{
         var isexist=false
         for(var i=0;i<listByProduct.length;i++){
-            if(listByProduct[i].idproduct==item.idproduct){
+            if(listByProduct[i].idproduct===item.idproduct){
                 isexist=true
                 listByProduct[i].itemlist.push(item)
 
@@ -246,7 +246,7 @@ export const listFlashsaleItemsByProduct=(list)=>{
     list.forEach((item)=>{
         var isexist=false
         for(var i=0;i<listByProduct.length;i++){
-            if(listByProduct[i].idproduct==item.idproduct){
+            if(listByProduct[i].idproduct===item.idproduct){
                 isexist=true
                 listByProduct[i].itemlist.push(item)
 
@@ -315,7 +315,7 @@ export const listSalesByTime=(list)=>{
         milliseconds=milliseconds-(milliseconds%3600)+3600
 
         // GET LAST HOUR
-        if(index==list.length-1){
+        if(index===list.length-1){
             lasthour=hour
         }
 
@@ -337,7 +337,7 @@ export const listSalesByTime=(list)=>{
         var subhour=i-lasthour
         // var order_updateat=
         for(var j=0;j<listAddHour.length;j++){
-            if(listAddHour[j].hour==i){
+            if(listAddHour[j].hour===i){
                 checkout_price+=listAddHour[j].checkout_price
                 qty+=listAddHour[j].qty
                 // order_updateat=listAddHour[j].order_updateat
@@ -357,32 +357,32 @@ export const listSalesByTime=(list)=>{
 
 
     // MERGE AND SUM ORDERS WITH THE SAME HOUR VALUE
-    var listByHour=[]
+    // var listByHour=[]
     
-    listAddHour.forEach((order,index)=>{
-        // CHECK IF HOUR ALREADY EXIST
-        var isexist=false
-        for(var i=0;i<listByHour.length;i++){
-            if(order.hour==listByHour[i].hour){
-                isexist=true
-                // MERGE AND SUM
-                listByHour[i].checkout_price+=order.checkout_price
-                listByHour[i].qty+=order.qty
-            }
+    // listAddHour.forEach((order,index)=>{
+    //     // CHECK IF HOUR ALREADY EXIST
+    //     var isexist=false
+    //     for(var i=0;i<listByHour.length;i++){
+    //         if(order.hour==listByHour[i].hour){
+    //             isexist=true
+    //             // MERGE AND SUM
+    //             listByHour[i].checkout_price+=order.checkout_price
+    //             listByHour[i].qty+=order.qty
+    //         }
 
-        }
-        if(!isexist){
-            listByHour.push(order)
-        }else{
-            var orderzero={
-                checkout_price:0,
-                qty:0,
-                hour:order.hour
-            }
-            listByHour.push(orderzero)
-        }
-    })
+    //     }
+    //     if(!isexist){
+    //         listByHour.push(order)
+    //     }else{
+    //         var orderzero={
+    //             checkout_price:0,
+    //             qty:0,
+    //             hour:order.hour
+    //         }
+    //         listByHour.push(orderzero)
+    //     }
+    // })
     
 
-    return listByHour
+    // return listByHour
 }

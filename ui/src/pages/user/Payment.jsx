@@ -4,24 +4,18 @@ import {APIURL} from '../../supports/ApiUrl'
 import {
     Grid,
     Header,
-    Image,
-    Form,
-    Segment,
     Button,
     Message,
     Container,
-    Input,
-    TextArea,
     Checkbox,
     Icon,
     Divider,
-    Dropdown,
     Modal,
     Dimmer
 } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
-import {titleConstruct,isJson, idr} from '../../supports/services'
-import {LoadCart,UpdateCheckout,CountTotalPayment,LoadPayment,KeepLogin} from '../../redux/actions'
+import {idr} from '../../supports/services'
+import {LoadCart,CountTotalPayment,LoadPayment,KeepLogin} from '../../redux/actions'
 import {Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
 
@@ -104,7 +98,7 @@ class Payment extends Component {
 
             }
 
-            if(this.props.Cart.checkout.length-1==checkoutindex){
+            if(this.props.Cart.checkout.length-1===checkoutindex){
                 // console.log('last cycle')
                 if(status){
                     console.log('status is checked')
@@ -143,7 +137,7 @@ class Payment extends Component {
 
                     // LAST CYCLE
                     // AFTER ALL STOCK IS CHECKED
-                    if(this.props.Cart.checkout.length-1==checkoutindex&&seller.itemlist.length-1==sellerindex){
+                    if(this.props.Cart.checkout.length-1===checkoutindex&&seller.itemlist.length-1===sellerindex){
 
                         if(stock){
                             // STOCK IS GOOD
@@ -178,7 +172,7 @@ class Payment extends Component {
 
                     // LAST CYCLE
                     // AFTER ALL STOCK IS CHECKED
-                    if(this.props.Cart.checkout.length-1==checkoutindex&&seller.itemlist.length-1==sellerindex){
+                    if(this.props.Cart.checkout.length-1===checkoutindex&&seller.itemlist.length-1===sellerindex){
 
                         console.log('all stock is undo')
                     }
@@ -205,7 +199,7 @@ class Payment extends Component {
             this.props.LoadCart(this.props.User.iduser)
             this.props.LoadPayment(this.props.User.iduser)
             // IF USING POPCOIN
-            if(this.state.idpayment==4){
+            if(this.state.idpayment===4){
                 this.setState({ispaid:true})
                 setTimeout(() => {
                     this.setState({ispaid:false,tohome:true})
@@ -219,7 +213,7 @@ class Payment extends Component {
         })
 
         // IF USING POPCOIN
-        if(this.state.idpayment==4){
+        if(this.state.idpayment===4){
             const token=localStorage.getItem('token')
             if(token){
                 var topup={
@@ -327,15 +321,6 @@ class Payment extends Component {
         })
 
 
-
-
-
-
-
-
-
-
-
         // SAME FUNCTION
         // console.log(this.props.Cart)
         // var transactiondata={
@@ -423,7 +408,7 @@ class Payment extends Component {
                                         <Grid.Column>
                                             <Header as={'span'} color='blue'>Popcoin</Header>
                                             {
-                                                this.state.idpayment==4?
+                                                this.state.idpayment===4?
                                                 <div style={{fontSize:'13px',whiteSpace:'nowrap'}}>
                                                     {idr(this.props.User.popcoin)} - <span style={{fontWeight:'800'}}>{idr(this.props.Cart.totalpayment)}</span>
                                                     {
@@ -457,7 +442,7 @@ class Payment extends Component {
                             <Grid.Column width={4} style={{display:'flex',alignItems:'center',justifyContent:'flex-end'}}>
                                 <Checkbox 
                                     toggle 
-                                    checked={this.state.idpayment==4}
+                                    checked={this.state.idpayment===4}
                                     onClick={()=>{
                                         this.setState({idpayment:4})
                                         this.props.CountTotalPayment()
@@ -477,7 +462,7 @@ class Payment extends Component {
                             <Checkbox 
                                 toggle 
                                 style={{float:'right'}}
-                                checked={this.state.idpayment==1}
+                                checked={this.state.idpayment===1}
                                 onClick={()=>{
                                     this.setState({idpayment:1})
                                     // this.props.CountTotalPayment()
@@ -504,7 +489,7 @@ class Payment extends Component {
                             <Checkbox 
                                 toggle 
                                 style={{float:'right'}}
-                                checked={this.state.idpayment==2}
+                                checked={this.state.idpayment===2}
                                 onClick={()=>{
                                     this.setState({idpayment:2})
                                     // this.props.CountTotalPayment()
@@ -532,7 +517,7 @@ class Payment extends Component {
                         primary
                         loading={this.state.loading}
                         style={{width:'100%'}}
-                        disabled={(this.props.Cart.totalpayment&&this.state.idpayment?false:true) || this.state.idpayment==4&&remainingcredit<0 || this.state.loading}
+                        disabled={(this.props.Cart.totalpayment&&this.state.idpayment?false:true) || (this.state.idpayment===4&&remainingcredit<0) || (this.state.loading)}
                         onClick={this.submitPayment}
                     >
                         Pay

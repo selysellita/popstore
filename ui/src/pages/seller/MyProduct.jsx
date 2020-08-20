@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import SidebarSeller from './componentseller/sidebar';
-import { Button, Menu, Icon, Label, Table, Pagination, Input, Grid, Image, Header, Form, TextArea, Dropdown } from 'semantic-ui-react'
-import { NavLink, Link } from 'react-router-dom';
-import SubNavigation from './componentseller/subnavigation';
+import { Button, Menu, Icon,  Input, Grid, Image, Header, Form, TextArea, Dropdown } from 'semantic-ui-react'
 import _ from 'lodash'
 import Axios from 'axios'
-import { APIURL, UIURL } from '../../supports/ApiUrl';
+import { APIURL } from '../../supports/ApiUrl';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 
 class MyProducts extends Component {
@@ -190,7 +189,7 @@ class MyProducts extends Component {
                     </Grid.Column >
                     <Grid.Column width={4}>
                         Product Name
-                        <Icon name={direction==='ascending'&&column=='product_name'?'angle double down':'angle double up'} />
+                        <Icon name={direction==='ascending'&&column==='product_name'?'angle double down':'angle double up'} />
                     </Grid.Column>
 
                     <Grid.Column width={2}
@@ -203,7 +202,7 @@ class MyProducts extends Component {
                     sorted={column === 'price]' ? direction : null}
                     onClick={this.handleSort('price')}>
                         Price
-                        <Icon name={direction==='ascending'&&column=='price'?'angle double down':'angle double up'} />
+                        <Icon name={direction==='ascending'&&column==='price'?'angle double down':'angle double up'} />
                     
                     </Grid.Column>
 
@@ -211,12 +210,12 @@ class MyProducts extends Component {
                     sorted={column === 'stock]' ? direction : null}
                     onClick={this.handleSort('stock')}>
                         Stock 
-                        <Icon name={direction==='ascending'&&column=='stock'?'angle double down':'angle double up'} />
+                        <Icon name={direction==='ascending'&&column==='stock'?'angle double down':'angle double up'} />
                     </Grid.Column>
 
                     <Grid.Column width={2}>
                         Sold
-                        <Icon name={direction==='ascending'&&column=='sold?'?'angle double down':'angle double up'} />
+                        <Icon name={direction==='ascending'&&column==='sold?'?'angle double down':'angle double up'} />
                     </Grid.Column>
 
                     <Grid.Column width={2}>
@@ -227,7 +226,7 @@ class MyProducts extends Component {
     }
     
     render() { 
-        const { activeItem,search, searchCategory, column, direction,minprice, maxprice, cardperPage, page, totalProduct } = this.state
+        const { activeItem,search, searchCategory,minprice, maxprice, cardperPage, page, totalProduct } = this.state
         return ( 
             
             <div  style={{display:'flex', paddingTop:50, marginBottom:50}}>

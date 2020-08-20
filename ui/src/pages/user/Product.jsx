@@ -4,7 +4,6 @@ import {APIURL} from '../../supports/ApiUrl'
 import {
     Grid,
     Header,
-    Image,
     Form,
     Segment,
     Button,
@@ -12,9 +11,7 @@ import {
     Container,
     Input,
     TextArea,
-    Checkbox,
     Icon,
-    Divider,
     Rating,
     Dimmer,
     Loader,
@@ -22,7 +19,6 @@ import {
 import {Link} from 'react-router-dom'
 import {titleConstruct,idr} from '../../supports/services'
 import {LoadCart} from '../../redux/actions'
-import {Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
 import CommentSection from '../../components/Comment'
 
@@ -121,7 +117,7 @@ class Product extends Component {
             this.setState({items:res.data})
             this.constructImageList()
             // IF ONLY SINGLE TYPE PRODUCT
-            if(res.data.length==1){
+            if(res.data.length===1){
                 this.setState({itemselect:res.data[0]})
             }
         }).catch((err)=>{
@@ -140,7 +136,7 @@ class Product extends Component {
 
             this.setState({err:'Please Verify Your Account'})
 
-        }else if(this.state.itemselect.iduser==this.props.User.iduser){
+        }else if(this.state.itemselect.iduser===this.props.User.iduser){
 
             this.setState({err:'You cannot buy your own product'})
 
@@ -156,7 +152,7 @@ class Product extends Component {
 
             this.setState({err:'Item is not available'})
 
-        }else if( this.state.qty=='' || this.state.qty==0 || !this.state.qty>0 ){
+        }else if( this.state.qty==='' || this.state.qty===0 || !this.state.qty>0 ){
 
             this.setState({err:'Quantity is empty'})
 
@@ -282,7 +278,7 @@ class Product extends Component {
         .then((res)=>{
             this.setState({iswishlist:false})
             res.data.forEach((val,index)=>{
-                if(val.idproduct==this.state.product.idproduct){
+                if(val.idproduct===this.state.product.idproduct){
                     this.setState({iswishlist:true})
                 }
             })
@@ -359,8 +355,8 @@ class Product extends Component {
     }
 
     selectImage=(index)=>{
-        var imageshow=this.state.imageList[index]
-        var imageselectorder=index
+        // var imageshow=this.state.imageList[index]
+        // var imageselectorder=index
         var order=index>=this.state.maxorder?this.state.maxorder:index
 
         // console.log(index)
@@ -376,11 +372,11 @@ class Product extends Component {
 
         for(var item of this.state.items){
             
-            if(item.type==JSON.stringify(this.state.typeselect)){
+            if(item.type===JSON.stringify(this.state.typeselect)){
                 console.log('item selected')
                 // SELECT ITEM IMAGE TO SHOW
                 for(var order of this.state.itemimageorder){
-                    if(order.iditem==item.iditem){
+                    if(order.iditem===item.iditem){
                         var neworder=order.index>=this.state.maxorder?this.state.maxorder:order.index // for image slider
                         console.log('neworder',neworder)
                         // console.log('imagelist',this.state.imageList)
@@ -398,7 +394,7 @@ class Product extends Component {
 
     isJson=(data)=>{
         try{
-            if(data==null||data==''){
+            if(data===null||data===''){
                 return []
             }
             return JSON.parse(data)
@@ -427,7 +423,7 @@ class Product extends Component {
                         
                 }}>
                     <div
-                        className={index==this.state.imageselectorder?'product-image selected':'product-image'}
+                        className={index===this.state.imageselectorder?'product-image selected':'product-image'}
                         
                         style={{
                             width:'100%',
@@ -473,7 +469,7 @@ class Product extends Component {
                     <Grid.Column width={13}>
                         {
                             val.types.map((type,j)=>{
-                                var focus=this.state.typeselect[index]==type
+                                var focus=this.state.typeselect[index]===type
                                 return (
                                     <Button
                                         key={j}
@@ -546,7 +542,7 @@ class Product extends Component {
 
     render() { 
         this.renderImageList()
-        const imagecover=this.isJson(this.state.product.imagecover)
+        // const imagecover=this.isJson(this.state.product.imagecover)
         return ( 
             <Container style={{paddingTop:'2em',width:'600px',marginBottom:'4em'}}>
 
@@ -609,11 +605,11 @@ class Product extends Component {
                                             left:'0',
                                             transform:'translate(-0%,50%)',
                                             marginLeft:'.25em',
-                                            visibility:this.state.order==0?'hidden':'visible'
+                                            visibility:this.state.order===0?'hidden':'visible'
                                         }}
                                         onClick={()=>{
                                             this.setState({
-                                                order: this.state.order==0?0:this.state.order-1
+                                                order: this.state.order===0?0:this.state.order-1
                                             })
                                         }}
                                     />
@@ -625,11 +621,11 @@ class Product extends Component {
                                             bottom:'70px',
                                             right:'0',
                                             transform:'translate(0%,50%)',
-                                            visibility:this.state.order==this.state.maxorder?'hidden':'visible'
+                                            visibility:this.state.order===this.state.maxorder?'hidden':'visible'
                                         }}
                                         onClick={()=>{
                                             this.setState({
-                                                order: this.state.order==this.state.maxorder?this.state.order:this.state.order+1
+                                                order: this.state.order===this.state.maxorder?this.state.order:this.state.order+1
                                             })
                                         }}
                                     />
@@ -682,7 +678,7 @@ class Product extends Component {
                                     style={{height:'100%',margin:'0 .5em'}}
                                     onClick={()=>{
                                         this.setState({qtymessage:''})
-                                        if(this.state.qty==0||this.state.qty==''||this.state.qty==null||this.state.qty==undefined){
+                                        if(this.state.qty===0||this.state.qty===''||this.state.qty===null||this.state.qty===undefined){
                                             this.setState({qty:0})
                                         }else{
                                             this.setState({qty:this.state.qty-1})
@@ -718,7 +714,7 @@ class Product extends Component {
                                             this.setState({qtymessage:''})
                                         }
                                         // ADD QTY
-                                        if(this.state.qty==''||this.state.qty==null||this.state.qty==undefined){
+                                        if(this.state.qty===''||this.state.qty===null||this.state.qty===undefined){
                                             this.setState({qty:1})
                                         }else{
                                             this.setState({qty:this.state.qty+1})

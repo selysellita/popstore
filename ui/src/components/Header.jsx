@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {
     Button,
     Container,
-    Header,
     Menu,
     Icon,
     Label,
@@ -12,8 +11,6 @@ import { connect } from "react-redux";
 import {Link} from 'react-router-dom'
 import {isLogout} from './../redux/actions'
 import {titleConstruct,idr} from '../supports/services'
-import Axios from 'axios';
-import { APIURL } from '../supports/ApiUrl';
 
 
 class MainHeader extends Component {

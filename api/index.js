@@ -5,7 +5,7 @@ const bearertoken=require('express-bearer-token')
 
 const app=express()
 
-const PORT=2000
+const port=process.env.PORT || 2000
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:false}))
@@ -14,7 +14,7 @@ app.use(cors())
 
 
 app.get('/',(req,res)=>{
-    return res.send("<h1 style='text-align:center; margin-top:100px;'>Final Project JC 12</h1>")
+    return res.send("<center><h1>Popstore</h1><br><img width='25%' src='https://thumbs.gfycat.com/IdealPeacefulAmericanbittern-small.gif'/></center>")
 })
 
 
@@ -119,6 +119,6 @@ app.post('/merk',(req,res)=>{
 })
 
 
-app.listen(PORT,()=>console.log('API is online at port '+PORT))
+app.listen(port,()=>console.log('API is online at port '+port))
 
 

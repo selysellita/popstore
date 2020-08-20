@@ -1,32 +1,21 @@
-import React ,{Component,useState} from 'react'
+import React ,{Component} from 'react'
 import Axios from 'axios'
 import {APIURL} from '../../supports/ApiUrl'
 import {
     Grid,
     Header,
-    Image,
-    Form,
     Segment,
     Button,
     Message,
     Container,
     Input,
-    TextArea,
-    Checkbox,
     Icon,
-    Divider,
-    Modal,
     Dropdown,
-    Tab,
-    Menu,
-    Label,
     Rating
 } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
-import {titleConstruct,isJson,getDate,date} from '../../supports/services'
-import {ListByTransaction,listItemsByProduct} from '../../supports/ListAssembler'
-import {LoadCart,UpdateCheckout,CountTotalCharge,CountTotalPayment} from '../../redux/actions'
-import {Redirect} from 'react-router-dom'
+import {isJson,getDate} from '../../supports/services'
+import {listItemsByProduct} from '../../supports/ListAssembler'
 import { connect } from 'react-redux'
 
 
@@ -134,7 +123,7 @@ class FlashsalesData extends Component {
             // CHECK IF PRODUCT IS ALREADY IN FLASHSALE
             var issubmitted=false
             this.state.productsubmitted.forEach((flashsaleproduct,index)=>{
-                if(flashsaleproduct.idproduct==product.idproduct){
+                if(flashsaleproduct.idproduct===product.idproduct){
                     issubmitted=true
                 }
             })
@@ -169,7 +158,7 @@ class FlashsalesData extends Component {
                     </Grid.Column>
 
                     {
-                        this.state.idproductadd==product.idproduct?
+                        this.state.idproductadd===product.idproduct?
                         <Grid.Column width={6}>
                             <Header as={'h5'}>State Your Product Flashsale Price</Header>
                             <Input
@@ -199,7 +188,7 @@ class FlashsalesData extends Component {
                             <div>
                                 Product is already submitted in this flashsale <Icon name='check'/>
                             </div>
-                            :this.state.idproductadd==product.idproduct?
+                            :this.state.idproductadd===product.idproduct?
                                 <Button
                                     basic
                                     color='blue'
@@ -222,7 +211,7 @@ class FlashsalesData extends Component {
                         }
 
                         {
-                            product.idproduct==this.state.idproductadd&&this.state.errormessage?
+                            product.idproduct===this.state.idproductadd&&this.state.errormessage?
                             <div style={{color:'red',marginTop:'.5em'}}>{this.state.errormessage}</div>
                             : null
                         }

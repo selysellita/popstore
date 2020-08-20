@@ -4,13 +4,10 @@ import {APIURL} from '../../supports/ApiUrl'
 import {
     Grid,
     Header,
-    Image,
     Form,
     Segment,
     Button,
-    Message,
     Container,
-    Input,
     TextArea,
     Checkbox,
     Icon,
@@ -19,7 +16,6 @@ import {
 import {Link} from 'react-router-dom'
 import {titleConstruct,isJson, idr} from '../../supports/services'
 import {LoadCart} from '../../redux/actions'
-import {Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
@@ -73,7 +69,7 @@ class Cart extends Component {
 
                     // LAST CYCLE
                     // AFTER ALL STOCK IS CHECKED
-                    if(this.props.Cart.list.length-1==checkoutindex&&seller.itemlist.length-1==sellerindex){
+                    if(this.props.Cart.list.length-1===checkoutindex&&seller.itemlist.length-1===sellerindex){
 
                         if(stock){
                             // STOCK IS GOOD
@@ -252,7 +248,7 @@ class Cart extends Component {
                                             {
                                                 typeof item.qtyshort == 'undefined'?
                                                 null
-                                                :item.qtyshort==-item.qty?
+                                                :item.qtyshort===-item.qty?
                                                 <p style={{color:'red',margin:'0'}}>Stock is empty</p>
                                                 :
                                                 <p style={{color:'red',margin:'0'}}>Quantity is short by {-item.qtyshort}</p>
@@ -306,7 +302,7 @@ class Cart extends Component {
                                                 </Header>
                                             }
                                             {
-                                                this.state.editid==item.idtransactiondetail?
+                                                this.state.editid===item.idtransactiondetail?
                                                 <div>
                                                 <Form>
                                                     <TextArea 

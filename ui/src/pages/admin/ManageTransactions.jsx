@@ -1,21 +1,6 @@
 import React ,{Component} from 'react'
-import Axios from 'axios'
-import {APIURL} from '../../supports/ApiUrl'
 import {
-    Grid,
-    Header,
-    Image,
-    Form,
-    Segment,
-    Button,
-    Message,
     Container,
-    Input,
-    TextArea,
-    Checkbox,
-    Icon,
-    Divider,
-    Dropdown,
     Tab,
     Menu,
     Label
@@ -23,13 +8,7 @@ import {
 import PaymentVerify from './PaymentVerify'
 import DeliveryManage from './DeliveryManage'
 import AutoCompleteOrder from './AutoCompleteOrder'
-import PaymentList from '../user/PaymentList'
-import TransactionHistory from '../user/TransactionHistory'
-import OnTheWay from '../user/TransactionOnDelivery'
-import {Link} from 'react-router-dom'
-import {titleConstruct,isJson} from '../../supports/services'
-import {LoadCart,UpdateCheckout,CountTotalCharge,CountTotalPayment} from '../../redux/actions'
-import {Redirect} from 'react-router-dom'
+import {LoadCart} from '../../redux/actions'
 import { connect } from 'react-redux'
 
 

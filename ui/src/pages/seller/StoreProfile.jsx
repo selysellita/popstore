@@ -1,9 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import SidebarSeller from './componentseller/sidebar';
-import { Button, Menu, Icon, Card, Table, Pagination, Input, Grid, Image, Header, Form, TextArea, Segment, RevealContent } from 'semantic-ui-react'
-import { NavLink } from 'react-router-dom';
-import SubNavigation from './componentseller/subnavigation';
-import _ from 'lodash'
+import { Button,  Card, Grid, Image, Form} from 'semantic-ui-react'
 import Axios from 'axios'
 import { APIURL } from '../../supports/ApiUrl';
 import { useState } from 'react';
@@ -12,6 +9,7 @@ import { useEffect } from 'react';
 import Slide from 'react-reveal/Fade'
 import { isJson } from './../../supports/services'
 import {Redirect} from 'react-router-dom'
+
 const StoreProfile=(props)=>{
     const [data,setdata]=useState({})
     const [product,setproduct]=useState([])
@@ -70,10 +68,10 @@ const StoreProfile=(props)=>{
               <Card.Header>Rp.{val.price },00 </Card.Header>
             </Card.Content>
             <Card.Content extra  style={{backgroundColor:'#FAF8ED'}}>
-              <a>
+              {/* <a> */}
                 <Button onClick={()=>prodetail(val.idproduct)}>Product Detail</Button>
                
-              </a>
+              {/* </a> */}
             </Card.Content>
           </Card>
                 </Slide>

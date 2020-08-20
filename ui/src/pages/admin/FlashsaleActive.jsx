@@ -4,29 +4,13 @@ import {APIURL} from '../../supports/ApiUrl'
 import {
     Grid,
     Header,
-    Image,
-    Form,
     Segment,
-    Button,
-    Message,
     Container,
-    Input,
-    TextArea,
-    Checkbox,
-    Icon,
-    Divider,
-    Modal,
-    Dropdown,
-    Tab,
-    Menu,
-    Label,
     Rating
 } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
-import {titleConstruct,isJson,getDate,date,idr} from '../../supports/services'
-import {ListByTransaction,listItemsByProduct,listFlashsaleItemsByProduct} from '../../supports/ListAssembler'
-import {LoadCart,UpdateCheckout,CountTotalCharge,CountTotalPayment} from '../../redux/actions'
-import {Redirect} from 'react-router-dom'
+import {isJson,getDate,idr} from '../../supports/services'
+import {listFlashsaleItemsByProduct} from '../../supports/ListAssembler'
 import { connect } from 'react-redux'
 
 

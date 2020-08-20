@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import { Card, Icon, Image,  Input, Rating, Button, Grid, Segment, Form, Label, Dropdown } from 'semantic-ui-react';
+import { Card, Icon, Image,  Input, Rating, Button, Grid, Form, Label, Dropdown } from 'semantic-ui-react';
 import Axios from 'axios';
 import {APIURL} from './../../supports/ApiUrl';
-import { Link, NavLink } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 class WomenProducts extends Component {
     state = { 
         isloading:false,
@@ -88,9 +88,9 @@ class WomenProducts extends Component {
                     <div key={index} style={{width:'22%', marginLeft:12, marginRight:12, marginBottom:20}}>
                         <Link to={`/product/${val.idproduct}`}>
                             <Card raised style={{ paddingTop:5, height:'100%'}}>
-                                <a style={{alignSelf:'center'}}>
+                                {/* <a style={{alignSelf:'center'}}> */}
                                     <Image src={APIURL+ JSON.parse(val.imagecover)[0]} style={{height:'150px' }}/>
-                                </a>
+                                {/* </a> */}
                                 <Card.Content style={{borderColor: 'transparent',}} >
                                 <Card.Header style={{display:'block', overflow: 'hidden',}}>{val.product_name}</Card.Header>
                                 <Card.Meta>{val.maincategory}</Card.Meta>
@@ -100,10 +100,10 @@ class WomenProducts extends Component {
                                 </Card.Description>
                                 </Card.Content>
                                 <Card.Content style={{textAlign:'center',alignSelf:'center'}} extra>
-                                <a style={{fontSize:'18px', width:'100%'}} >
+                                <p style={{fontSize:'18px', width:'100%'}} >
                                     <Icon name='cart' />
                                     Detail
-                                </a>
+                                </p>
                                 </Card.Content>
                             </Card>
                         </Link>

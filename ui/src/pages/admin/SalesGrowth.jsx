@@ -3,7 +3,6 @@ import CanvasJSReact from '../../assets/canvasjs.react';
 import Axios from 'axios'
 import {APIURL} from '../../supports/ApiUrl'
 import {listSalesByTime} from '../../supports/ListAssembler'
-import {idr} from '../../supports/services'
 import { Grid, Dropdown } from 'semantic-ui-react';
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 

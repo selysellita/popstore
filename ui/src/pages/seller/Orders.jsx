@@ -4,27 +4,17 @@ import {APIURL} from '../../supports/ApiUrl'
 import {
     Grid,
     Header,
-    Image,
-    Form,
     Segment,
     Button,
     Message,
     Container,
     Input,
-    TextArea,
-    Checkbox,
     Icon,
-    Divider,
-    Dropdown,
-    Tab,
-    Menu,
-    Label,
-    GridColumn
+    Divider
 } from 'semantic-ui-react'
 import {Link} from 'react-router-dom'
 import {titleConstruct,isJson,getDate} from '../../supports/services'
 import {LoadOrders} from '../../redux/actions'
-import {Redirect} from 'react-router-dom'
 import { connect } from 'react-redux'
 
 
@@ -241,7 +231,7 @@ class Orders extends Component {
                                 </div>
                                 <Divider/>
                                 {
-                                    transaction.idtransaction==this.state.orderid?
+                                    transaction.idtransaction===this.state.orderid?
                                     <>
                                     <Input
                                         placeholder='Tracking Code'
@@ -270,7 +260,7 @@ class Orders extends Component {
                                     </Button>
                                 }
                                 {
-                                    transaction.idtransaction==this.state.cancelid?
+                                    transaction.idtransaction===this.state.cancelid?
                                     <>
                                     <Input
                                         placeholder='Reason Of Cancellation'
@@ -297,7 +287,7 @@ class Orders extends Component {
                                     </Button>
                                 }
                                 {
-                                    this.state.errormessage&&transaction.idtransaction==this.state.orderid?
+                                    this.state.errormessage&&transaction.idtransaction===this.state.orderid?
                                     <p style={{color:'red'}}>{this.state.errormessage}</p>
                                     : null
                                 }
